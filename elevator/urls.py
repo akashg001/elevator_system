@@ -17,12 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from home.views import ElevatorViewSet
+from home.views import *
 
-router = routers.DefaultRouter()
-router.register(r'elevators', ElevatorViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include(router.urls)),
+    path('elevators/', get_elevator_list, name='get_elevator_list'),
+    path('elevators/create/', create_elevator, name='create_elevator'),
+    path('elevators/update/<int:elevator_id>/', update_elevator, name='update_elevator'),
+    path('elevators/associate_with_floor/', associate_elevator_with_floor, name='associate_elevator_with_floor'),
+    path('elevators/mark_available/<int:elevator_id>/', mark_elevator_available, name='mark_elevator_available'),
+    path('elevators/initialize/', initialize_elevator_system, name='initialize_elevator_system'),
+    path('elevators/available/', get_available_elevators, name='get_available_elevators'),
+    path('elevators/non_operational/', get_non_operational_elevators, name='get_non_operational_elevators'),
+    path('elevators/status/<int:elevator_id>/', get_elevator_status, name='get_elevator_status'),
+    path('elevators/current_floor/<int:elevator_id>/', get_elevator_current_floor, name='get_elevator_current_floor'),
+    path('requests/', get_request_list, name='get_request_list'),
+    path('requests/create/', create_request, name='create_request'),
 ]

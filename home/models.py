@@ -34,4 +34,4 @@ class Elevator(models.Model):
 class Request(models.Model):
     floor = models.IntegerField()
     direction = models.CharField(max_length=10, choices=(('up', 'Up'), ('down', 'Down')))
-    elevator = models.ForeignKey('Elevator', on_delete=models.CASCADE, related_name='requests')
+    elevators = models.ForeignKey('Elevator', on_delete=models.CASCADE, related_name='elevators')
