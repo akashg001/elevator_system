@@ -4,11 +4,17 @@ The Elevator API is a Django-based RESTful API that allows you to manage elevato
 
 ## Setup
 
-1. Clone the repository: git clone <repository_url>
-2. Navigate to the project directory: cd elevator
-3. Install the required dependencies using pip: pip install -r requirements.txt
-4. Apply the database migrations: python manage.py migrate
-5. Run the development server: python manage.py runserver
+1. Clone the repository:
+   git clone <repository_url>
+3. Navigate to the project directory:
+   cd elevator
+5. Install the required dependencies using pip:
+   pip install -r requirements.txt
+7. Apply the database migrations:
+   python manage.py makemigrations
+   python manage.py migrate
+9. Run the development server:
+    python manage.py runserver
 
 
 The API will be accessible at `http://localhost:8000/`.
@@ -28,23 +34,9 @@ The API will be accessible at `http://localhost:8000/`.
 - `GET /requests/`: Retrieve the list of elevator requests.
 - `POST /requests/create/`: Create a new elevator request.
 
-For detailed information about each endpoint, including request/response examples, refer to the API documentation.
-
-## Postman Collection
-
-A Postman collection containing sample requests for the Elevator API is provided in the `postman` directory. Import the collection into Postman to easily test the API endpoints.
-
 ## Models
 
 The Elevator API uses the following Django models:
 
 - `Elevator`: Represents an elevator with attributes such as name, current floor, availability, and operational status.
 - `Request`: Represents a request associated with an elevator, specifying the floor and direction.
-
-## Contributing
-
-Contributions to the Elevator API project are welcome! If you find a bug or want to suggest an enhancement, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
