@@ -7,6 +7,8 @@ class Elevator(models.Model):
     is_door_open = models.BooleanField(default=False)
     direction = models.CharField(max_length=10, choices=(('up', 'Up'), ('down', 'Down'), ('stop', 'Stop')))
     requests = models.ManyToManyField('Request')
+    is_available = models.BooleanField(default=True)
+    is_operational = models.BooleanField(default=True)
 
     def move_up(self):
         self.current_floor += 1
@@ -28,8 +30,7 @@ class Elevator(models.Model):
 
     def display_status(self):
         print(f"Elevator {self.name} | Current Floor: {self.current_floor} | Running: {self.is_running} | Door Open: {self.is_door_open}")
-
-
+        
 class Request(models.Model):
     floor = models.IntegerField()
     direction = models.CharField(max_length=10, choices=(('up', 'Up'), ('down', 'Down')))
