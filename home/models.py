@@ -6,7 +6,6 @@ class Elevator(models.Model):
     is_running = models.BooleanField(default=False)
     is_door_open = models.BooleanField(default=False)
     direction = models.CharField(max_length=10, choices=(('up', 'Up'), ('down', 'Down'), ('stop', 'Stop')))
-    requests = models.ManyToManyField('Request')
     is_available = models.BooleanField(default=True)
     is_operational = models.BooleanField(default=True)
 
