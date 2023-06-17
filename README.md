@@ -4,11 +4,11 @@ The Elevator API is a Django-based RESTful API that allows you to manage elevato
 
 ## Setup
 
-1. Clone the repository:
-2. Navigate to the project directory:
-3. Install the required dependencies using pip:
-4. Apply the database migrations:
-5. Run the development server:
+1. Clone the repository: git clone <repository_url>
+2. Navigate to the project directory: cd elevator
+3. Install the required dependencies using pip: pip install -r requirements.txt
+4. Apply the database migrations: python manage.py migrate
+5. Run the development server: python manage.py runserver
 
 
 The API will be accessible at `http://localhost:8000/`.
